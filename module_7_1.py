@@ -12,14 +12,14 @@ class Shop(Product):
         super().__init__(name, weight, category)
         self.__file_name = __file_name
     def get_products(self):
-        file = open(self.__file_name, 'r')
+        file = open(self.__file_name, 'products.txt')
         st = file.read()
         file.close()
         print(f'{st}')
     def add(self, *products):
         for i in products:
             s = (str(i))
-            file = open(self.__file_name, 'r')
+            file = open(self.__file_name, 'products.txt')
             f = file.read()
             file.close()
             if s in f:
@@ -28,9 +28,7 @@ class Shop(Product):
                 file = open(self.__file_name, 'a')
                 file.write(f'\n{s}')
                 file.close()
-
-
-s1 = Shop()
+s1 = Shop('', 0, '')
 p1 = Product('Potato', 50.5, 'Vegetables')
 p2 = Product('Spaghetti', 3.4, 'Groceries')
 p3 = Product('Potato', 5.5, 'Vegetables')
